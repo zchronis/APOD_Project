@@ -11,10 +11,21 @@ use App\Models\favorites;
 
 
 class UserController extends Controller {
-    public function signup(Request $request) {
-        $user_name = $request->input("user_name");
-        $user_pass = $request->input("user_pass");
-        return view('welcome', compact('user_name','user_pass'));
+    public function signUp() {
+        return view('signUp');
+    }
+    
+    public function register(Request $request){
+        $request->validate([
+            'uName' => 'required|string',
+            'password' => 'required|string'
+        ]);
+    
+        $user = new User;
+        $user->user_name = $request->uName;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect()->route('welcome');
     }
 }
 

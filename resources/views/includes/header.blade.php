@@ -7,6 +7,7 @@
         
 
         <title>APOD viewer</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('image/apod_favicon.png') }}">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -60,9 +61,9 @@
                 <a href="{{ route('welcome') }}" class="navbar-brand mb=0 h1">
                     <img
                         class="align-middle"
-                        src=""
+                        src="{{ asset('image/apod_logo.png') }}"
                         alt="Logo Icon" 
-                        width="40" 
+                        width="70" 
                     />
                 </a>
                 <button 
@@ -84,14 +85,48 @@
                         </li>
                         <li class="nav-item @if (Route::current()->getName() == '') active @endif">
                             <a class="nav-link" href="{{ route('welcome') }}">
-                                temp
+                                Favorites
                             </a>
                         </li>
-                    </ul>
+                        </ul>
+                        <span class="my-2 my-lg-0">
+                            <button onclick="window.location='{{ route("signup") }}'" class="btn btn-primary col mx-1">Sign Up</button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCenter">Sign in</button>
+                        </span>
                 </div>
+                
             </div>
         </nav>
 
+        <form action="{{ route('login') }}" method="POST" enctype="mulipart/form-data">
+        @csrf
+            <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content customModalStyle">
+                        <div class="modal-header border-warning">
+                            <h5 class="modal-title" id="ModalLongTitle">Sign-in</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3 row">
+                                <label for="email" class="form-label col-sm-6">Email:</label>
+                                <input type="email" name="email" class="form-control col" id="email">
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="password" class="form-label col-sm-6">Password:</label>
+                                <input type="password" name="password" class="form-control col" id="password">
+                            </div>
+                        </div>
+                        <div class="modal-footer border-warning">
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Sign-in</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 
 
         @yield('body')

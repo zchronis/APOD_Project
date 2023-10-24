@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -22,4 +23,10 @@ Route::get('/', function () {
 
 Route::controller(WelcomeController::class)->group(function() {
     Route::get('/', 'show')->name('welcome');
+});
+
+Route::controller(UserController::class)->group(function(){
+    Route::get('/signup', 'signUp')->name('signup');
+    Route::post('/register', 'register')->name('register');
+    route::get('/login', 'login')->name('login');
 });

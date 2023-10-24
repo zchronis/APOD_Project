@@ -9,8 +9,8 @@ use App\Models\users;
 use App\Models\apods;
 use App\Models\favorites;
 
-class WelcomeController extends Controller
-{
+
+class WelcomeController extends Controller{
     public function show() {
         return view('welcome');
     }
