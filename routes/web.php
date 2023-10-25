@@ -29,4 +29,5 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/signup', 'signup')->name('signup');
     Route::post('/register', 'register')->name('register');
     Route::get('/login', 'login')->name('login');
+    Route::post('/saveAPOD', 'saveAPOD')->name('saveAPOD');
 });
