@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('explanation');
             $table->text('hdurl');
             $table->text('title');
+            $table->timestamps();
         });
     }
 

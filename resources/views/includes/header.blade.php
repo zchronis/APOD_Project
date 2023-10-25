@@ -45,7 +45,6 @@
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
             crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="{{ asset('/css/custom.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
             integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
             crossorigin="anonymous" 
@@ -99,7 +98,7 @@
             </div>
         </nav>
 
-        <form action="{{ route('login') }}" method="POST" enctype="mulipart/form-data">
+        <form action="{{ route('login') }}" method="GET" enctype="mulipart/form-data">
         @csrf
             <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -111,8 +110,8 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3 row">
-                                <label for="email" class="form-label col-sm-6">Email:</label>
-                                <input type="email" name="email" class="form-control col" id="email">
+                                <label for="username" class="form-label col-sm-6">Username:</label>
+                                <input type="username" name="username" class="form-control col" id="username">
                             </div>
                             <div class="mb-3 row">
                                 <label for="password" class="form-label col-sm-6">Password:</label>

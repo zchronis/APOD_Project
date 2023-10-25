@@ -26,7 +26,7 @@ Route::controller(WelcomeController::class)->group(function() {
 });
 
 Route::controller(UserController::class)->group(function(){
-    Route::get('/signup', 'signUp')->name('signup');
+    Route::get('/signup', 'signup')->name('signup');
     Route::post('/register', 'register')->name('register');
-    route::get('/login', 'login')->name('login');
+    Route::get('/login', 'login')->name('login');
 });

@@ -5,6 +5,7 @@ namespace App\Models;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
+
 final class users extends Model {
     const TABLE = 'users';
     
@@ -23,4 +24,5 @@ final class users extends Model {
         return $this->user_pass;
     }
 }
+
 ?>

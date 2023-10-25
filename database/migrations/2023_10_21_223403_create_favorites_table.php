@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('favorites', function (Blueprint $table) {
             $table->foreignId('user_id');
             $table->foreignId('apod_id');
+            $table->timestamps();
         });
     }
 

@@ -12,11 +12,11 @@
     <h1 class="text-uppercase mb-3">Sign Up</h1>
     <div class="mb-3 row">
       <label for="name1" class="form-label col-sm-6">User Name:</label>
-      <input type="name" name="fName" class="form-control col" id="name1">
+      <input type="name" name="user_name" class="form-control col" id="name1">
     </div>
     <div class="mb-3 row">
       <label for="password1" class="form-label col-sm-6">Password:</label>
-      <input type="password" name="password" class="form-control col" id="password1">
+      <input type="password" name="user_pass" class="form-control col" id="password1">
     </div>
     <div class="row">
       <button type="submit" class="btn btn-primary col mx-1">Submit</button>
