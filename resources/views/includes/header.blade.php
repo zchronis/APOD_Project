@@ -111,11 +111,11 @@
                         <div class="modal-body">
                             <div class="mb-3 row">
                                 <label for="username" class="form-label col-sm-6">Username:</label>
-                                <input type="username" name="username" class="form-control col" id="username">
+                                <input type="username" name="user_name" class="form-control col" id="username">
                             </div>
                             <div class="mb-3 row">
                                 <label for="password" class="form-label col-sm-6">Password:</label>
-                                <input type="password" name="password" class="form-control col" id="password">
+                                <input type="password" name="user_pass" class="form-control col" id="password">
                             </div>
                         </div>
                         <div class="modal-footer border-warning">

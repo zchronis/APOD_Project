@@ -24,19 +24,29 @@ class UserController extends Controller {
         
         $user = new users;
         $user->user_name = $request->user_name;
-        $user->password = bcrypt($request->user_pass);
+        $user->password = $request->user_pass;
         $user->save();
         return redirect()->route('welcome');
     }
 
-    public function login(){
+    public function login(Request $request){
         validator(request()->all(), [
             'user_name' => ['required'],
             'user_pass' => ['required']
         ])->validate();
 
-        if(auth()->attempt(request()->only(['user_name','user_pass']))){
-            return redirect('welcome');
+        $user_name = $request->user_name;
+        $user_pass = $request->user_pass;
+
+        $user = users::where('user_name', $user_name)->first();
+        
+        if($user->password == $user_pass) {
+            $user_favs = favorites::where('user_id', $user->user_id)->get();
+            $fav_photos = [];
+            foreach ($user_favs as $fav) {
+                array_push($fav_photos, apod::where('apod_id', $fav->apod_id));
+            }
+            return view("/favorites", compact('user', 'fav_photos'));
         }
         return redirect()->back()->withErrors(['user_name' => 'Invalid Credentials']);
     }
