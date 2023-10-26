@@ -5,11 +5,11 @@
     <p>{{$user->user_name}}</p>
     @if(count($fav_photos) > 1)
         @foreach($fav_photos as $photo)
-            <img src="{{$photo->hdurl}}">
+            <img src="{{ $photo->hdurl }}">
         @endforeach
     @endif
 
-    <form action="{{route('saveAPOD')}}" method="POST">
+    <form action="{{ route('saveAPOD') }}" method="POST">
     @csrf
         <div class="apod" id="apod">
         </div>
@@ -26,6 +26,7 @@
                 alt: "Astronomy picture of the day!",
                 width: 300
             });
+            
             let para = $('<p>').text(response.data.explanation).attr({
                 style: "color:white;"
             });
@@ -35,6 +36,18 @@
                 id: "hidden_hdurl",
                 type: "hidden",
                 value: response.data.hdurl
+            });
+            let url = $('<input>').attr({
+                name: "url",
+                id: "hidden_url",
+                type: "hidden",
+                value: response.data.url
+            });
+            let media_type = $('<input>').attr({
+                name: "media_type",
+                id: "hidden_media_type",
+                type: "hidden",
+                value: response.data.media_type
             });
             let copyright = $('<input>').attr({
                 name: "copyright",
@@ -73,6 +86,8 @@
             $("#apod").append(desc);
             $("#apod").append(title);
             $("#apod").append(hdurl);
+            $("#apod").append(url);
+            $("#apod").append(media_type);
             $("#apod").append(copyright);
             $("#apod").append(date);
             $("#apod").append(user_name);

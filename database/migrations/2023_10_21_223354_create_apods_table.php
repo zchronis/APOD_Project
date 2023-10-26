@@ -17,6 +17,8 @@ return new class extends Migration
             $table->date('photo_date');
             $table->text('explanation');
             $table->text('hdurl');
+            $table->text('url');
+            $table->text('media_type');
             $table->text('title');
             $table->timestamps();
         });

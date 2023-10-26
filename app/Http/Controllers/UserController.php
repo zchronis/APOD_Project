@@ -73,6 +73,8 @@ class UserController extends Controller {
         $apods->photo_date = $request->photo_date;
         $apods->explanation = $request->explanation;
         $apods->hdurl = $request->hdurl;
+        $apods->url = $request->url;
+        $apods->media_type = $request->media_type;
         $apods->title = $request->title;
 
         $apods->save();
