@@ -82,17 +82,18 @@
                                 Home
                             </a>
                         </li>
-                        <li class="nav-item @if (Route::current()->getName() == '') active @endif">
-                            <a class="nav-link" href="{{ route('welcome') }}">
-                                Favorites
-                            </a>
-                        </li>
                         </ul>
+                        @if( !isset($user) )
                         <span class="my-2 my-lg-0">
                             <button onclick="window.location='{{ route("signup") }}'" class="btn btn-primary col mx-1">Sign Up</button>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCenter">Sign in</button>
                         </span>
+                        @else
+                        <span class="my-2 my-lg-0">
+                            <button onclick="window.location='{{ route("welcome") }}'" class="btn btn-primary col mx-1">Log Out</button>
+                        </span>
+                        @endif
                 </div>
                 
             </div>
