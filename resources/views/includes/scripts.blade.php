@@ -1,6 +1,6 @@
 <script>
     function get_apod(callback) {
-        axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+        axios.get("https://api.nasa.gov/planetary/apod?api_key={{config('services.nasa.api_key')}}")
         .then(function(response) {
             let data = response.data;
 
